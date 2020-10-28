@@ -2,20 +2,12 @@ require "rspec"
 
 class ChangeMachine
   def value_to_coins(value)
+    coin_values = [25, 10, 5, 1]
     coins = []
-    while value > 0
-      if value >= 25
-        coins << 25
-        value -= 25
-      elsif value >= 10
-        coins << 10
-        value -= 10
-      elsif value >= 5
-        coins << 5
-        value -= 5
-      else
-        coins << 1
-        value -= 1
+    coin_values.each do |coin_value|
+      while value >= coin_value
+        coins << coin_value
+        value -= coin_value
       end
     end
     coins
